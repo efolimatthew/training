@@ -1,0 +1,38 @@
+ui_id;ttl;txt;icn;cls;css;pop
+btn_start;;Start;circle-play;ui positive button;;FALSE
+btn_next;;Next;circle-play;ui positive button;;FALSE
+btn_change;;Change;circle-play;ui positive button;;FALSE
+btn_nw_field;;New Field;circle-play;ui positive button;;FALSE
+btn_add_manual;Add New Element;Add a new Manual Element on the map (CSV or Manual);map-marker-alt;btn_menu;;FALSE
+btn_edit_manual;Edit Manual Element;Edit one of the Maunal Elements (CSV or Manual) or add manual Data;pen;btn_menu;;FALSE
+btn_upload_csv;Upload CSV Data;Upload Data from CSV and add them to a Element;file-csv;btn_menu;;FALSE
+btn_add_api;Add API Element;Add a new Element via API (Automatic Data);share-alt;btn_menu;;FALSE
+btn_open_polygon;Draw Polygon;Create a new Map by drawing a polygon on the map;draw-polygon;btn_menu;;FALSE
+btn_open_interpole;Interpole;Create a new Map Interpolating points from an existing map or element;map-marked-alt;btn_menu;;FALSE
+btn_upload_layer;Upload Map;Upload a new map from your computer;file-upload;btn_menu;;FALSE
+btn_open_classify;Classify Map;Divide the pixels on a map into distinct classes;th-large;btn_menu;;FALSE
+btn_open_dosage;Dosage Map;Create a new map which shows the dosage of an input product in each pixel;eye-dropper;btn_menu;;FALSE
+btn_open_zoning;Management Zones;Create a new Map with management zones according to multiple variables;drafting-compass;btn_menu;;FALSE
+btn_open_tracker;Tracker & Applicator;Manage your field operations like tractors, sprayers, mowers etc.;tractor;btn_menu;;FALSE
+btn_start_tracker;Start Course;Start the course of your operation.;play;btn_menu;;FALSE
+btn_stop_tracker;Stop Course;Stop the Course of your operation.;stop;btn_menu;;FALSE
+btn_reset_tracker;Reset Course;Reset all operation data. Note that you will lose the progress.;rotate-left;btn_menu;;FALSE
+txt_live_pos;;All Data are OK!;;;"color: green;";FALSE
+txt_live_neg;;Check the Data.;;;"color: red;";FALSE
+btn_ms_ok;Run;Everything is great, go ahead;thumbs-up;ui positive button;"width: 130px;";FALSE
+btn_ms_no;Abort;You can go back and lose the change.;times;ui negative button;"width: 100px;";FALSE
+btn_neg_ok;OK;;NA;ui negative button;"width: 100px;";FALSE
+btn_pos_ok;OK;;thumbs-up;ui positive button;"width: 100px;";FALSE
+;;;;;;
+;;;;;;
+;;;;;;
+MSAGRODATA_update;;;pen;ui inverted positive button ui icon button;;FALSE
+btn_del_ok;Delete;;trash;ui inverted positive button;"width: 100px;";FALSE
+btn_del_no;Abort;;times;ui negative button;"width: 100px;";FALSE
+;;;;;;
+;;;;;;
+MSUSER_update;;;pen;ui inverted positive button ui icon button;;FALSE
+;;;;;;
+MSEVENT_add;New Event;Create a new Event;plus;ui primary button;"width: 100px;";TRUE
+MSEVENT_delete;;;trash;ui inverted negative button ui icon button;;FALSE
+MSEVENT_update;;;pen;ui inverted positive button ui icon button;;FALSE

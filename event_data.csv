@@ -1,0 +1,15 @@
+event_id,EMAIL,event_name,start_date,end_date,event_type,event_repeat
+ES61828b98,peru@profile.com,"Inicio Temporada","2021-10-30 13:00:00",NULL,user,NULL
+ES61f2a832,cliente@summit-agro.com,start_clientesummit,"2022-01-23 00:00:00",NULL,default,NULL
+ES61f9ac0d,rodrigo.ortega@agriservice.cl,newanotherevent,"2022-02-01 22:00:00",NULL,user,NULL
+ES61fc4085,cliente@summit-agro.com,"newnameof event","2022-02-01 21:00:00","2022-02-19 21:00:00",user,weekly
+ES62520112,rodrigo.ortega@neoag.cl,testevent,"2022-04-21 22:00:00","2022-04-28 22:00:00",user,weekly
+ES6255c368,defaultuser,"Plantio Soja Brasil","2022-02-03 18:00:00",NULL,default,yearly
+ES6255d220,german.follmer@prokambium.com,"evento de German","2022-04-01 19:00:00","2022-04-13 19:00:00",user,weekly
+ES627586d2,carolina.orellana@summit-agro.com,"Helada 1","2022-05-06 20:00:00",NULL,user,yearly
+ES628f962e,service@odapes.app,"inicio Maturação Trigo","2022-03-07 15:00:00",NULL,user,NULL
+ES62bc5400,service@odapes.app,"newnameof the stuff","2022-06-16 13:00:00",NULL,user,NULL
+ES62bc8d0f,service@odapes.app,bhjvi,"2022-06-14 18:00:00",NULL,user,daily
+ES62bc8e76,service@odapes.app,bhjvi,"2022-06-14 18:00:00",NULL,user,daily
+ES62bc8e7e,service@odapes.app,bhjvi,"2022-06-14 18:00:00",NULL,user,daily
+ES62bc8e8f,service@odapes.app,bhjvi,"2022-06-14 18:00:00",NULL,user,daily

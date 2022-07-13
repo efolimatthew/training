@@ -1,0 +1,5 @@
+﻿ui_id;table_id
+MSUSER_update;user
+MSEVENT_delete;user_event
+MSEVENT_update;user_event
+MSAGRODATA_update;user_agro
