@@ -5,7 +5,6 @@
 
 # creates + translates + glues message for delete warning (returns ttl, txt, icn)
 delete_warn_msg <- function(tbl, row){
-  browser()
   list(
     ttl="Delete Event",
     icn ="trash",
@@ -43,12 +42,15 @@ warning_confirmation_modal<-function(x, ns, params){
 ods_training_UI <- function(id, params) {
   
   ns <- NS(id)
-  # Namespaces are ALWAYS required for ALL ui elements INSIDE MODULES IN THE UI PART ONLY!!!!
-  
+
   # This comment is to make sure it updated
   tagList(
-    actionButton(inputId = ns("btn3"), label = "random button in MODULE") # trainid-btn3
+    actionButton(inputId = ns("btn3"), label = "random button in MODULE"), # trainid-btn3
+    DT::dataTableOutput(outputId = ns("evt_tbl"))
   )
+
+  # 
+  
   
 }
 
@@ -69,12 +71,46 @@ ods_training_SERVER <- function(id, r_data, r_control, params) {
     })
     
     
+    output$evt_tbl <- DT::renderDataTable({
+      
+      clstohide <- c("event_type", "EMAIL", "sdvafv", "user", "fweqf")
+      clstoshow <- c("event_id", "event_name", "start_date", "end_date", "USER")
+
+      X <- r_data$event %>% dplyr::select(any_of(clstoshow))
+      
+      opts <- list(dom = 't',
+                   ordering=F,
+                   #columnDefs = cldfs(tbl),
+                   scrollY = '350px',
+                   paging = F
+      )
+
+      browser()
+      X %>%  DT::datatable(selection = 'none',
+                          rownames = FALSE,
+                           #colnames = DT_header(tbl, params),
+                          filter = "top",
+                           #extensions = exts,
+                          
+                          options = opts,
+                          escape = F
+      )
+      
+      
+      
+    })
+    
+    
+    
+    #here I want to code how the cassava algorithm works
+    
+    
 
     ## DELETE PART----------
     # asks user confirmation for delete item delete
     observeEvent(r_control$trigger_delete, {
       req(r_control$MS_delete)
-      browser()
+      X <- r_data$event
       x <- r_control$MS_delete
       delete_warn_msg(which_table(r_control$MS_delete), which_row(r_control$MS_delete)) %>%
         warning_confirmation_modal(ns, params)

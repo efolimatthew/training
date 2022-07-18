@@ -51,19 +51,17 @@ ui <- shinydashboardPlus::dashboardPage(
   ) 
 )  
 
-
 server <- function(input, output, session) {
   
   r_data <- reactiveValues(
-    event = read.csv2(here("event_data.csv"))
+    event = readr::read_csv2(here("event_data_2.csv"))
   )
   
   r_control <- reactiveValues(
     trigger_delete = 0,
     MS_delete = NULL
   )
-  
-  
+
   #modules server part
   ods_training_SERVER("trainid", r_data, r_control, params)
   
