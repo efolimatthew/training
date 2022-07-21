@@ -102,9 +102,17 @@ ods_training_SERVER <- function(id, r_data, r_control, params) {
     
     
     
+    
     #here I want to code how the cassava algorithm works
     
-    
+    observe({
+      req(r_control$MS_delete)
+      X <- r_data$event
+      x <- r_control$MS_delete
+      delete_warn_msg(which_table(r_control$MS_delete), which_row(r_control$MS_delete)) %>%
+        warning_confirmation_modal(ns, params)
+      
+    })
 
     ## DELETE PART----------
     # asks user confirmation for delete item delete
