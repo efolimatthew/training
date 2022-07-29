@@ -29,6 +29,26 @@ stationid <- c("03A0B149", "03B0B175", "03B0B177")
 #fecha <-now() %>% as.POSIXct(format="%Y/%m/%d %H:%M:%S")
 fecha = as.POSIXct("2020-10-04 09:00:00")  
 
+
+
+function_gigancesto <- function(stationid, fecha){
+  df_datos <- stationid %>% map_df(leerdb)
+  llu24 <- f24ho(df_lluvia, fecha)
+  temp24 <- f24ho(df_temperatura, fecha)
+  hum24 <- f24ho(df_humedad, fecha)
+  
+  ### lluvia acumulada temperatura min y max, humedad promedio de  las ultimas 24 horas
+  acumllu24h <- llu24 %>% apply( MARGIN = 2, FUN = sum) %>% as.data.frame()
+  temp_min24 <- temp24 %>% apply( MARGIN = 2, FUN = min) %>% as.data.frame()
+  temp_max24 <- temp24 %>% apply( MARGIN = 2, FUN = max) %>% as.data.frame()
+  hum_prom24 <- hum24 %>% apply( MARGIN = 2, FUN = mean) %>% as.data.frame()
+  
+  tem_med_min24 <- temp_min24 %>% apply( MARGIN = 2, FUN = mean) %>% as.data.frame()
+  tem_med_max24 <- temp_max24 %>% apply( MARGIN = 2, FUN = mean) %>% as.data.frame()
+  hum_med_24 <-hum_prom24 %>% apply( MARGIN = 2, FUN = mean) %>% as.data.frame()
+  return(to DF)
+}
+
 ## funciones
 # Leer las tablas de la base de datos
 
@@ -42,7 +62,7 @@ leerdb <- function(station, now_date, dys){
   dfcrudo4 <- pool_db %>% dplyr::tbl("element_data_X")%>%
     dplyr::filter(element_id %in% station) %>%
     dplyr::filter(Timestamp > now_date)%>%collect()
-  
+lubridate::floor_date()
 
   dfcrudo2 <- dfcrudo3%>%dplyr::filter(station_id %in% station)%>%collect()
   dfcrudo <-  dfcrudo2 %>% select_if(names(.) %in% c('station_id','Timestamp', 'C21A', 'C11A', 'C31A' )) %>%

@@ -12,7 +12,6 @@ source(here("training_helper_UI.R"))
 source(here("training_module.R"))
 
 
-
 ui_data <- get_ui_data3()
 params<-list(ui_data = NULL)
 
@@ -44,12 +43,48 @@ ui <- shinydashboardPlus::dashboardPage(
 
     ##  UI Tabsets (Modules)---------
     tabItems(
-      tabItem(tabName = "map", actionButton(inputId = "btn1", label = "show windown in Training")),
+      tabItem(tabName = "map",
+              actionButton(inputId = "btn1", label = "show windown in Training"),
+              
+              selectInput(inputId = "sel1", label = "Select an option",
+                          choices = list("Square it 1" = 1, "Square it 2" = 2, "Square it 3"= 3)
+                       
+                          ),
+              
+              
+              box(
+                title = textOutput(outputId = "box_title"),
+                #title = "Title of my nice box written in txt",
+                id = "mybox",
+                collapsible = TRUE,
+                closable = TRUE,
+                # body
+                "Box body",
+                plotOutput(outputId =  "plot"),
+                footer = "Here is the footer"
+              )
+              
+              
+              ),
       tabItem(tabName = "train", ods_training_UI("trainid", params)),
       tabItem(tabName = "set")
       )
   ) 
 )  
+
+
+create_title <- function(x){
+  
+  x <- as.numeric(x)
+  y <- x*x
+  z <- paste("The Result is", y)
+  return(z)
+}
+
+create_plot <- function(x){
+  plot(seq(1:100)^as.numeric(x))
+}
+
 
 server <- function(input, output, session) {
   
@@ -61,7 +96,18 @@ server <- function(input, output, session) {
     trigger_delete = 0,
     MS_delete = NULL
   )
+  
+  output$box_title <- renderText({
+    return(create_title(input$sel1))
+  })
+  
+  output$plot <- renderPlot({
+    return(create_plot(input$sel1))
+  })
 
+  # 
+  
+  
   #modules server part
   ods_training_SERVER("trainid", r_data, r_control, params)
   

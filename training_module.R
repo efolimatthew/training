@@ -84,8 +84,6 @@ ods_training_SERVER <- function(id, r_data, r_control, params) {
                    scrollY = '350px',
                    paging = F
       )
-
-      browser()
       X %>%  DT::datatable(selection = 'none',
                           rownames = FALSE,
                            #colnames = DT_header(tbl, params),
@@ -95,9 +93,6 @@ ods_training_SERVER <- function(id, r_data, r_control, params) {
                           options = opts,
                           escape = F
       )
-      
-      
-      
     })
     
     
